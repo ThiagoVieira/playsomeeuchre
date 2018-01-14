@@ -1,0 +1,115 @@
+import cProfile
+from performance.test_performance_util import *
+
+
+euchre_sim = EuchreSim([RandomPlayer(i) for i in range(4)])
+results = euchre_sim.simulate()
+print("Sim Time: " + str(euchre_sim.sim_time))
+cProfile.run('EuchreSim([RandomPlayer(i) for i in range(4)]).simulate()')
+
+
+
+
+
+Sim Time: 0:00:28.364622
+         114739630 function calls (99203087 primitive calls) in 45.180 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 <string>:1(<listcomp>)
+        1    0.011    0.011   45.180   45.180 <string>:1(<module>)
+    11007    0.007    0.000    0.046    0.000 RandomPlayer.py:18(dealer_pick_up_trump)
+     2711    0.002    0.000    0.011    0.000 RandomPlayer.py:22(dealer_discard_card)
+     3561    0.004    0.000    0.022    0.000 RandomPlayer.py:29(call_trump)
+      871    0.001    0.000    0.003    0.000 RandomPlayer.py:32(<listcomp>)
+    71640    0.089    0.000    1.156    0.000 RandomPlayer.py:36(play_card)
+        4    0.000    0.000    0.000    0.000 RandomPlayer.py:8(__init__)
+    89932    0.008    0.000    0.008    0.000 copy.py:111(_copy_immutable)
+12973577    16.198    0.000   40.813    0.000 copy.py:132(deepcopy) /177838
+  7650279    0.515    0.000    0.515    0.000 copy.py:190(_deepcopy_atomic)
+392758       0.780    0.000   40.369    0.000 copy.py:210(_deepcopy_list) /177838
+1340095      2.859    0.000   30.474    0.000 copy.py:236(_deepcopy_dict) /659515
+  3072948    1.396    0.000    1.895    0.000 copy.py:252(_keep_alive)
+2681644      5.628    0.000   36.378    0.000 copy.py:268(_reconstruct) /836340
+  5009638    1.069    0.000    4.484    0.000 copy.py:273(<genexpr>)
+   338397    0.527    0.000    1.596    0.000 copy.py:66(copy)
+  1442569    0.524    0.000    0.766    0.000 copyreg.py:87(__newobj__)
+    17910    0.009    0.000    0.009    0.000 data_model.py:112(__init__)
+     4000    0.003    0.000    0.003    0.000 data_model.py:135(__init__)
+    93895    0.027    0.000    0.027    0.000 data_model.py:146(get_flipped_card)
+     3582    0.004    0.000    0.006    0.000 data_model.py:155(get_dealer_index)
+     7164    0.002    0.000    0.002    0.000 data_model.py:156(<genexpr>)
+    88919    0.587    0.000   43.144    0.000 data_model.py:177(__init__)
+   177838    0.052    0.000    0.052    0.000 data_model.py:178(<genexpr>)
+   374423    0.059    0.000    0.059    0.000 data_model.py:40(__eq__)
+     4000    0.003    0.000    0.126    0.000 data_model.py:70(shuffle_cards)
+     4000    0.006    0.000    0.132    0.000 data_model.py:73(deal_cards)
+    16000    0.006    0.000    0.006    0.000 data_model.py:97(__init__)
+  1327994    0.711    0.000    1.492    0.000 enum.py:265(__call__)
+    74351    0.104    0.000    0.114    0.000 enum.py:28(_is_dunder)
+    74351    0.061    0.000    0.175    0.000 enum.py:310(__getattr__)
+      871    0.001    0.000    0.001    0.000 enum.py:329(__iter__)
+     4355    0.001    0.000    0.001    0.000 enum.py:330(<genexpr>)
+  1327994    0.781    0.000    0.781    0.000 enum.py:515(__new__)
+  1239075    0.272    0.000    0.272    0.000 enum.py:582(__reduce_ex__)
+    75901    0.009    0.000    0.009    0.000 enum.py:597(value)
+     5422    0.001    0.000    0.001    0.000 game_controller.py:100(<genexpr>)
+     1289    0.009    0.000    0.726    0.001 game_controller.py:111(call_trump)
+     3582    0.269    0.000   41.240    0.012 game_controller.py:121(play_round)
+     7164    0.003    0.000    0.003    0.000 game_controller.py:124(<genexpr>)
+        4    0.000    0.000    0.000    0.000 game_controller.py:72(__init__)
+     4000    0.010    0.000   45.018    0.011 game_controller.py:78(play)
+     4000    0.015    0.000    0.182    0.000 game_controller.py:86(deal_new_round)
+     4000    0.011    0.000    0.017    0.000 game_controller.py:88(<listcomp>)
+    16000    0.003    0.000    0.003    0.000 game_controller.py:89(<lambda>)
+     4000    0.042    0.000    2.860    0.001 game_controller.py:93(dealer_pick_up_card)
+    17279    0.024    0.000    0.050    0.000 random.py:172(randrange)
+    17279    0.010    0.000    0.060    0.000 random.py:216(randint)
+   181790    0.156    0.000    0.228    0.000 random.py:222(_randbelow)
+    72511    0.053    0.000    0.180    0.000 random.py:252(choice)
+     4000    0.043    0.000    0.123    0.000 random.py:260(shuffle)
+        4    0.000    0.000    0.000    0.000 random.py:87(__init__)
+        4    0.000    0.000    0.000    0.000 random.py:96(seed)
+    21492    0.010    0.000    0.111    0.000 test_performance_util.py:18(<genexpr>)
+    17910    0.004    0.000    0.007    0.000 test_performance_util.py:19(<genexpr>)
+        1    0.000    0.000    0.000    0.000 test_performance_util.py:53(__init__)
+        1    0.000    0.000   45.169   45.169 test_performance_util.py:62(simulate)
+        4    0.003    0.001   45.021   11.255 test_performance_util.py:66(<listcomp>)
+        1    0.003    0.003    0.148    0.148 test_performance_util.py:69(<listcomp>)
+     4000    0.022    0.000    0.145    0.000 test_performance_util.py:7(__init__)
+    75901    0.029    0.000    0.038    0.000 types.py:135(__get__)
+    42984    0.050    0.000    0.123    0.000 valid_moves.py:17(<listcomp>)
+    42984    0.042    0.000    0.097    0.000 valid_moves.py:18(<listcomp>)
+    30219    0.013    0.000    0.013    0.000 valid_moves.py:27(<listcomp>)
+   472824    0.173    0.000    0.204    0.000 valid_moves.py:34(is_trump)
+    71640    0.234    0.000    0.888    0.000 valid_moves.py:4(valid_trick_moves)
+    56950    0.036    0.000    0.042    0.000 valid_moves.py:43(trump_value)
+    71640    0.141    0.000    0.170    0.000 valid_moves.py:68(cards_played_by)
+    32238    0.095    0.000    0.196    0.000 valid_moves.py:80(trick_winner)
+  1442569    0.242    0.000    0.242    0.000 {built-in method __new__ of type object at 0x0000000077F8B620}
+        1    0.000    0.000   45.180   45.180 {built-in method builtins.exec}
+  5363288    2.215    0.000    2.390    0.000 {built-in method builtins.getattr}
+  1442569    0.918    0.000    0.918    0.000 {built-in method builtins.hasattr}
+ 20462035    1.455    0.000    1.455    0.000 {built-in method builtins.id}
+  4124217    0.620    0.000    0.620    0.000 {built-in method builtins.isinstance}
+  2681644    0.294    0.000    0.294    0.000 {built-in method builtins.issubclass}
+   609358    0.049    0.000    0.049    0.000 {built-in method builtins.len}
+    98794    0.028    0.000    0.067    0.000 {built-in method builtins.next}
+        4    0.000    0.000    0.000    0.000 {built-in method now}
+        4    0.000    0.000    0.000    0.000 {function Random.seed at 0x0000000002A92950}
+  1442569    1.399    0.000    1.399    0.000 {method '__reduce_ex__' of 'object' objects}
+  4470300    0.390    0.000    0.390    0.000 {method 'append' of 'list' objects}
+   181790    0.017    0.000    0.017    0.000 {method 'bit_length' of 'int' objects}
+    14328    0.002    0.000    0.002    0.000 {method 'count' of 'tuple' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+ 27881569    2.942    0.000    2.942    0.000 {method 'get' of 'dict' objects}
+   311008    0.055    0.000    0.055    0.000 {method 'getrandbits' of '_random.Random' objects}
+  1340095    0.256    0.000    0.256    0.000 {method 'items' of 'dict' objects}
+   145545    0.102    0.000    0.159    0.000 {method 'remove' of 'list' objects}
+     4000    0.013    0.000    0.016    0.000 {method 'sort' of 'list' objects}
+  1442569    0.364    0.000    0.364    0.000 {method 'update' of 'dict' objects}
+
+
+
+Process finished with exit code 0

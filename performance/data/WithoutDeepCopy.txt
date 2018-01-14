@@ -1,0 +1,97 @@
+import cProfile
+from performance.test_performance_util import *
+
+
+euchre_sim = EuchreSim([RandomPlayer(i) for i in range(4)])
+results = euchre_sim.simulate()
+print("Sim Time: " + str(euchre_sim.sim_time))
+cProfile.run('EuchreSim([RandomPlayer(i) for i in range(4)]).simulate()')
+
+
+
+
+"C:\Program Files\Anaconda3\python.exe" C:/Users/Thiago/git/euchre/profile/play_profile.py
+Sim Time: 0:00:02.897166
+         7779361 function calls in 4.304 seconds
+
+   Ordered by: standard name
+
+      ncalls	 tottime	  percall	  cumtime	 percall	filename:lineno(function)
+642236	0.653	0	1.713	0	copy.py:66(copy)
+88919	0.375	0	2.569	0	data_model.py:177(__init__)
+472824	0.219	0	0.247	0	valid_moves.py:34(is_trump)
+353650	0.208	0	0.345	0	{built-in method builtins.getattr}
+71640	0.193	0	0.798	0	valid_moves.py:4(valid_trick_moves)
+3582	0.188	0	3.558	0.001	game_controller.py:121(play_round)
+88919	0.184	0	0.379	0	data_model.py:159(<listcomp>)
+176825	0.181	0	0.426	0	copy.py:268(_reconstruct)
+181790	0.13	0	0.191	0	random.py:222(_randbelow)
+71640	0.124	0	0.152	0	valid_moves.py:68(cards_played_by)
+163270	0.104	0	0.104	0	enum.py:515(__new__)
+102474	0.103	0	0.103	0	{method '__reduce_ex__' of 'object' objects}
+88919	0.099	0	0.487	0	data_model.py:158(copy_tricks)
+163270	0.087	0	0.192	0	enum.py:265(__call__)
+32238	0.085	0	0.179	0	valid_moves.py:80(trick_winner)
+74351	0.081	0	0.089	0	enum.py:28(_is_dunder)
+71640	0.071	0	1.009	0	RandomPlayer.py:36(play_card)
+232830	0.068	0	0.068	0	data_model.py:112(__init__)
+102474	0.058	0	0.058	0	{built-in method builtins.hasattr}
+698277	0.054	0	0.054	0	{built-in method builtins.len}
+74351	0.048	0	0.137	0	enum.py:310(__getattr__)
+279303	0.047	0	0.047	0	{built-in method builtins.isinstance}
+72511	0.045	0	0.142	0	random.py:252(choice)
+177838	0.044	0	0.044	0	data_model.py:178(<genexpr>)
+42984	0.041	0	0.109	0	valid_moves.py:17(<listcomp>)
+4000	0.04	0	0.117	0	random.py:260(shuffle)
+42984	0.038	0	0.149	0	valid_moves.py:18(<listcomp>)
+102474	0.036	0	0.055	0	copyreg.py:87(__newobj__)
+226613	0.036	0	0.036	0	data_model.py:40(__eq__)
+56950	0.034	0	0.041	0	valid_moves.py:43(trump_value)
+4000	0.032	0	0.342	0	game_controller.py:93(dealer_pick_up_card)
+75901	0.026	0	0.035	0	types.py:135(__get__)
+98794	0.025	0	0.058	0	{built-in method builtins.next}
+235095	0.022	0	0.022	0	{method 'append' of 'list' objects}
+4000	0.021	0	0.137	0	test_performance_util.py:7(__init__)
+176825	0.021	0	0.021	0	{built-in method builtins.issubclass}
+17279	0.019	0	0.04	0	random.py:172(randrange)
+102474	0.019	0	0.019	0	{built-in method __new__ of type object at 0x0000000077F8B620}
+74351	0.018	0	0.018	0	enum.py:582(__reduce_ex__)
+93895	0.016	0	0.016	0	data_model.py:146(get_flipped_card)
+30219	0.013	0	0.013	0	valid_moves.py:27(<listcomp>)
+4000	0.012	0	0.167	0	game_controller.py:86(deal_new_round)
+21492	0.011	0	0.104	0	test_performance_util.py:18(<genexpr>)
+4000	0.01	0	0.016	0	game_controller.py:88(<listcomp>)
+75901	0.009	0	0.009	0	enum.py:597(value)
+17279	0.008	0	0.049	0	random.py:216(randint)
+89932	0.007	0	0.007	0	copy.py:111(_copy_immutable)
+1289	0.007	0	0.084	0	game_controller.py:111(call_trump)
+4000	0.007	0	4.157	0.001	game_controller.py:78(play)
+11007	0.006	0	0.038	0	RandomPlayer.py:18(dealer_pick_up_trump)
+1	0.005	0.005	4.304	4.304	<string>:1(<module>)
+4000	0.005	0	0.124	0	data_model.py:73(deal_cards)
+16000	0.005	0	0.005	0	data_model.py:97(__init__)
+3582	0.004	0	0.006	0	data_model.py:155(get_dealer_index)
+17910	0.004	0	0.006	0	test_performance_util.py:19(<genexpr>)
+3561	0.003	0	0.018	0	RandomPlayer.py:29(call_trump)
+4000	0.003	0	0.003	0	data_model.py:135(__init__)
+16000	0.003	0	0.003	0	game_controller.py:89(<lambda>)
+1	0.003	0.003	0.14	0.14	test_performance_util.py:69(<listcomp>)
+2711	0.002	0	0.009	0	RandomPlayer.py:22(dealer_discard_card)
+7164	0.002	0	0.002	0	data_model.py:156(<genexpr>)
+4000	0.002	0	0.119	0	data_model.py:70(shuffle_cards)
+7164	0.002	0	0.002	0	game_controller.py:124(<genexpr>)
+4	0.002	0.001	4.159	1.04	test_performance_util.py:66(<listcomp>)
+871	0.001	0	0.002	0	RandomPlayer.py:32(<listcomp>)
+871	0.001	0	0.001	0	enum.py:329(__iter__)
+4355	0.001	0	0.001	0	enum.py:330(<genexpr>)
+5422	0.001	0	0.001	0	game_controller.py:100(<genexpr>)
+1	0	0	0	0	<string>:1(<listcomp>)
+4	0	0	0	0	RandomPlayer.py:8(__init__)
+4	0	0	0	0	game_controller.py:72(__init__)
+4	0	0	0	0	random.py:87(__init__)
+4	0	0	0	0	random.py:96(seed)
+1	0	0	0	0	test_performance_util.py:53(__init__)
+1	0	0	4.299	4.299	test_performance_util.py:62(simulate)
+1	0	0	4.304	4.304	{built-in method builtins.exec}
+4	0	0	0	0	{built-in method now}
+4	0	0	0	0	{function Random.seed at 0x0000000002A12950}
